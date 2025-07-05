@@ -96,7 +96,7 @@ Get AI-based task recommendation (priority, deadline, enhanced desc)
 
 | Task Form with AI | Context Input |
 |-------------------|----------------|
-| ![Form](screenshots/form.png) | ![Context](screenshots/context.png) |
+| ![Form](screenshots/Add-task.png) | ![Context](screenshots/Daily-context.png) |
 
 ## 📦 Sample Data
 
