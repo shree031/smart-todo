@@ -8,9 +8,16 @@ from .serializers import TaskSerializer, CategorySerializer, ContextEntrySeriali
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
+# List + Create
 class TaskListCreate(generics.ListCreateAPIView):
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
+
+# Retrieve + Update + Delete (for a single task)
+class TaskDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Task.objects.all()
+    serializer_class = TaskSerializer
+    lookup_field = 'id'
 
 class CategoryList(generics.ListAPIView):
     queryset = Category.objects.all()
@@ -25,8 +32,6 @@ class ContextEntryListCreate(generics.ListCreateAPIView):
 class CategoryListCreate(generics.ListCreateAPIView):
     queryset = Category.objects.all().order_by('name')
     serializer_class = CategorySerializer
-
-
 
 
 @api_view(['POST'])

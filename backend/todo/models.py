@@ -9,11 +9,11 @@ class Category(models.Model):
 
 
 class Task(models.Model):
-    title = models.CharField(max_length=200)
-    description = models.TextField(blank=True)
-    category = models.CharField(max_length=100, blank=True, null=True)  # <-- Add this line
-    priority_score = models.IntegerField(default=0)
-    deadline = models.DateField(blank=True, null=True)
+    title = models.CharField(max_length=255)
+    description = models.TextField()
+    category = models.CharField(max_length=100, blank=True)
+    priority_score = models.IntegerField(null=True, blank=True)
+    deadline = models.DateField(null=True, blank=True)
     status = models.CharField(max_length=50, default='pending')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
