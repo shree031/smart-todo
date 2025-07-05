@@ -92,14 +92,11 @@ Add a new context entry.
 Get AI-based task recommendation (priority, deadline, enhanced desc)
 
 ## 📸 Screenshots
-
-| Dashboard (Light Mode) | Dashboard (Dark Mode) |
-|------------------------|------------------------|
-| ![Light](screenshots/light.png) | ![Dark](screenshots/dark.png) |
+📂 All screenshots are located in the screenshots/ folder in this repository.
 
 | Task Form with AI | Context Input |
 |-------------------|----------------|
-| ![Form](screenshots/form.png) | ![Context](screenshots/context.png) |
+| ![Form](Screenshots/Add-task.png) | ![Context](Screenshots/Daily-context.png) |
 
 ## 📦 Sample Data
 
