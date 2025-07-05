@@ -9,7 +9,7 @@ class TaskSerializer(serializers.ModelSerializer):
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
-        fields = '__all__'
+        fields = ['id', 'name', 'usage_count']
 
 class ContextEntrySerializer(serializers.ModelSerializer):
     class Meta:

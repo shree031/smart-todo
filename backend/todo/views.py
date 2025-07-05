@@ -1,6 +1,7 @@
 from django.shortcuts import render
 
-# Create your views here.
+import random
+
 from rest_framework import generics
 from .models import Task, Category, ContextEntry
 from .serializers import TaskSerializer, CategorySerializer, ContextEntrySerializer
@@ -15,16 +16,40 @@ class CategoryList(generics.ListAPIView):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
 
+
 class ContextEntryListCreate(generics.ListCreateAPIView):
-    queryset = ContextEntry.objects.all()
+    queryset = ContextEntry.objects.all().order_by('-timestamp')
     serializer_class = ContextEntrySerializer
 
-# Mock AI suggestion endpoint
+
+class CategoryListCreate(generics.ListCreateAPIView):
+    queryset = Category.objects.all().order_by('name')
+    serializer_class = CategorySerializer
+
+
+
+
 @api_view(['POST'])
-def get_ai_suggestions(request):
+def ai_suggestion(request):
+    # Mock AI logic
+    title = request.data.get('title', '')
+    description = request.data.get('description', '')
+
+    # Mocked logic based on keywords
+    if "urgent" in description.lower():
+        days = 1
+        priority = 5
+    elif "week" in description.lower():
+        days = 7
+        priority = 3
+    else:
+        days = random.randint(2, 5)
+        priority = 2
+
     return Response({
-        "priority": 7,
-        "deadline_days": 3,
-        "enhanced_description": "This task is important and should be done in 3 days.",
-        "tags": ["important", "urgent"]
+        "priority": priority,
+        "deadline_days": days,
+        "tags": ["auto", "ai"],
+        "enhanced_description": f"{description} (analyzed)"
     })
+
